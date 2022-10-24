@@ -75,7 +75,7 @@ pub struct KeyboardButton {
     /// Whether or not the key is down. Didn't feel
     /// that it was worth making an enum, but this 
     /// could change in the future.
-    pub down: bool,
+    down: bool,
     /// The time in microseconds that the button was pressed.
     time: u64
 }
@@ -96,12 +96,12 @@ pub struct MouseButton {
     /// Whether or not the button was pressed down.
     /// 
     /// Didn't decide to make this an enum, may reconsider.
-    pub down: bool,
+    down: bool,
     /// When the mousebutton was pressed down.
     time: u64
 }
 
-trait EventTime {
+pub trait EventTime {
     /// The time in microseconds that the event took place.
     fn microseconds(&self) -> u64;
     /// The time in seconds that the event took place.
@@ -140,5 +140,24 @@ impl EventTime for Event {
             Event::Keyboard(kb) => kb.time,
             Event::Mouse(ms) => ms.time,
         }
+    }
+}
+
+pub trait EventUpDown {
+    /// Is the key/button down?
+    fn down(&self) -> bool;
+    /// Is the key/button up?
+    fn up(&self) -> bool {!self.down()}
+}
+
+impl EventUpDown for MouseButton {
+    fn down(&self) -> bool {
+        self.down
+    }
+}
+
+impl EventUpDown for KeyboardButton {
+    fn down(&self) -> bool {
+        self.down
     }
 }

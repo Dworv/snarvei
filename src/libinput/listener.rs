@@ -1,12 +1,9 @@
-use std::error::Error;
 use std::fs::{File, OpenOptions};
 use std::os::unix::{fs::OpenOptionsExt, io::{RawFd, FromRawFd, IntoRawFd}};
 use std::path::Path;
 use std::sync::mpsc::Sender;
 
-use input::event::keyboard::KeyboardEventTrait;
-use input::event::pointer::PointerButtonEvent;
-use input::{Libinput, LibinputInterface, event::{self, KeyboardEvent, PointerEvent}};
+use input::{Libinput, LibinputInterface};
 use libc::{O_RDONLY, O_RDWR, O_WRONLY};
 
 use super::Event;
