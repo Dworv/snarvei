@@ -8,5 +8,7 @@ Not yet decided, however looking into `uinput`.
 https://www.kernel.org/doc/html/v4.12/input/uinput.html Also looking into 
 `tfc`, seems promising.
 
+`tfc` doesn't seem to have all the keys we need, may need to fork it or something.
+
 ## GUI
 Will probably use GTK-rs, as this is intended for Linux desktops
