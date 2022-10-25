@@ -1,6 +1,6 @@
 use std::{sync::mpsc::channel, thread, time::Duration};
 
-use snarvei::{listen, Event, EventUpDown};
+use snarvei::{listen, Event, event::EventUpDown};
 
 fn main() {
     let (tx, rx) = channel::<Event>();

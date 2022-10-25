@@ -7,9 +7,9 @@ use input::event::{self, keyboard::KeyboardEventTrait, pointer::PointerEventTrai
 #[derive(Debug)]
 pub enum Event {
     /// A keyboard button being pressed.
-    Keyboard(KeyboardButton),
+    Keyboard(KeyboardEvent),
     /// A mouse button being pressed.
-    Mouse(MouseButton),
+    MouseButton(MouseButtonEvent),
     // MouseScrl(MouseScroll)
 }
 
@@ -23,7 +23,7 @@ impl TryFrom<event::Event> for Event {
                 match keyboard_event {
                     event::KeyboardEvent::Key(key_event) => {
                         Ok(Keyboard(
-                            KeyboardButton { 
+                            KeyboardEvent { 
                                 key: key_event.key(), 
                                 down: match key_event.key_state() {
                                     event::tablet_pad::KeyState::Pressed => true,
@@ -40,8 +40,8 @@ impl TryFrom<event::Event> for Event {
             input::Event::Pointer(pointer_event) => {
                 match pointer_event {
                     event::PointerEvent::Button(button_event) => {
-                        Ok(Mouse(
-                            MouseButton {
+                        Ok(MouseButton(
+                            MouseButtonEvent {
                                 button: button_event.button(),
                                 down: match button_event.button_state() {
                                     event::tablet_pad::ButtonState::Pressed => true,
@@ -51,9 +51,6 @@ impl TryFrom<event::Event> for Event {
                             }
                         ))
                     },
-                    // event::PointerEvent::ScrollWheel(_) => todo!(),
-                    // event::PointerEvent::ScrollFinger(_) => todo!(),
-                    // event::PointerEvent::ScrollContinuous(_) => todo!(),
                     _ => Err(()),
                 }
             },
@@ -65,7 +62,7 @@ impl TryFrom<event::Event> for Event {
 /// Extra information behind a keyboard button being 
 /// pressed.
 #[derive(Debug)]
-pub struct KeyboardButton {
+pub struct KeyboardEvent {
     /// The key as a `u32`.
     /// 
     /// In the future, this may need to be further 
@@ -86,7 +83,7 @@ pub struct KeyboardButton {
 /// May be changed to `MouseAction` in the future to 
 /// account for scrolling.
 #[derive(Debug)]
-pub struct MouseButton {
+pub struct MouseButtonEvent {
     /// The key as a `u32`.
     /// 
     /// This is very likely to become its own enum in
@@ -97,7 +94,7 @@ pub struct MouseButton {
     /// 
     /// Didn't decide to make this an enum, may reconsider.
     down: bool,
-    /// When the mousebutton was pressed down.
+    /// When the MouseButtonEvent was pressed down.
     time: u64
 }
 
@@ -122,13 +119,13 @@ pub trait EventTime {
     fn days(&self) -> u64 { self.microseconds() / 1000000 / 60 / 60 / 24 }
 }
 
-impl EventTime for KeyboardButton {
+impl EventTime for KeyboardEvent {
     fn microseconds(&self) -> u64 {
         self.time
     }
 }
 
-impl EventTime for MouseButton {
+impl EventTime for MouseButtonEvent {
     fn microseconds(&self) -> u64 {
         self.time
     }
@@ -138,7 +135,7 @@ impl EventTime for Event {
     fn microseconds(&self) -> u64 {
         match self {
             Event::Keyboard(kb) => kb.time,
-            Event::Mouse(ms) => ms.time,
+            Event::MouseButton(ms) => ms.time,
         }
     }
 }
@@ -150,13 +147,13 @@ pub trait EventUpDown {
     fn up(&self) -> bool {!self.down()}
 }
 
-impl EventUpDown for MouseButton {
+impl EventUpDown for MouseButtonEvent {
     fn down(&self) -> bool {
         self.down
     }
 }
 
-impl EventUpDown for KeyboardButton {
+impl EventUpDown for KeyboardEvent {
     fn down(&self) -> bool {
         self.down
     }
