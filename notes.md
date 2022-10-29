@@ -10,5 +10,7 @@ https://www.kernel.org/doc/html/v4.12/input/uinput.html Also looking into
 
 `tfc` doesn't seem to have all the keys we need, may need to fork it or something.
 
+`evdev-rs` looks pretty good.
+
 ## GUI
 Will probably use GTK-rs, as this is intended for Linux desktops

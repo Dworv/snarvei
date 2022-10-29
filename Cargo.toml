@@ -7,4 +7,4 @@ edition = "2021"
 
 [dependencies]
 input = "0.7"
-libc = "0.2.135"
+libc = "0.2.137"
