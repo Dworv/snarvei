@@ -5,7 +5,7 @@ use std::collections::HashMap;
 use lazy_static::lazy_static;
 
 lazy_static!{
-    static ref INPUT_DICT: HashMap<u16, &'static str> = HashMap::from([
+    [pub] static ref INPUT_DICT: HashMap<u16, &'static str> = HashMap::from([
         (0, "PROP_POINTER"),
         (1, "PROP_DIRECT"),
         (2, "PROP_BUTTONPAD"),
@@ -15,7 +15,7 @@ lazy_static!{
         (6, "PROP_ACCELEROMETER"),
         (31, "PROP_MAX"),
     ]);
-    static ref EV_DICT: HashMap<u16, &'static str> = HashMap::from([
+    [pub] static ref EV_DICT: HashMap<u16, &'static str> = HashMap::from([
         (0, "SYN"),
         (1, "KEY"),
         (2, "REL"),
@@ -30,14 +30,14 @@ lazy_static!{
         (23, "FF_STATUS"),
         (31, "MAX"),
     ]);
-    static ref SYN_DICT: HashMap<u16, &'static str> = HashMap::from([
+    [pub] static ref SYN_DICT: HashMap<u16, &'static str> = HashMap::from([
         (0, "REPORT"),
         (1, "CONFIG"),
         (2, "MT_REPORT"),
         (3, "DROPPED"),
         (15, "MAX"),
     ]);
-    static ref KEY_DICT: HashMap<u16, &'static str> = HashMap::from([
+    [pub] static ref KEY_DICT: HashMap<u16, &'static str> = HashMap::from([
         (1, "ESC"),
         (2, "1"),
         (3, "2"),
@@ -520,7 +520,7 @@ lazy_static!{
         (700, "KBD_LCD_MENU5"),
         (767, "MAX"),
     ]);
-    static ref BTN_DICT: HashMap<u16, &'static str> = HashMap::from([
+    [pub] static ref BTN_DICT: HashMap<u16, &'static str> = HashMap::from([
         (256, "0"),
         (257, "1"),
         (258, "2"),
@@ -630,7 +630,7 @@ lazy_static!{
         (742, "TRIGGER_HAPPY39"),
         (743, "TRIGGER_HAPPY40"),
     ]);
-    static ref REL_DICT: HashMap<u16, &'static str> = HashMap::from([
+    [pub] static ref REL_DICT: HashMap<u16, &'static str> = HashMap::from([
         (0, "X"),
         (1, "Y"),
         (2, "Z"),
@@ -645,7 +645,7 @@ lazy_static!{
         (12, "HWHEEL_HI_RES"),
         (15, "MAX"),
     ]);
-    static ref ABS_DICT: HashMap<u16, &'static str> = HashMap::from([
+    [pub] static ref ABS_DICT: HashMap<u16, &'static str> = HashMap::from([
         (0, "X"),
         (1, "Y"),
         (2, "Z"),
@@ -689,7 +689,7 @@ lazy_static!{
         (61, "MT_TOOL_Y"),
         (63, "MAX"),
     ]);
-    static ref SW_DICT: HashMap<u16, &'static str> = HashMap::from([
+    [pub] static ref SW_DICT: HashMap<u16, &'static str> = HashMap::from([
         (0, "LID"),
         (1, "TABLET_MODE"),
         (2, "HEADPHONE_INSERT"),
@@ -708,7 +708,7 @@ lazy_static!{
         (15, "PEN_INSERTED"),
         (16, "MAX"),
     ]);
-    static ref MSC_DICT: HashMap<u16, &'static str> = HashMap::from([
+    [pub] static ref MSC_DICT: HashMap<u16, &'static str> = HashMap::from([
         (0, "SERIAL"),
         (1, "PULSELED"),
         (2, "GESTURE"),
@@ -717,7 +717,7 @@ lazy_static!{
         (5, "TIMESTAMP"),
         (7, "MAX"),
     ]);
-    static ref LED_DICT: HashMap<u16, &'static str> = HashMap::from([
+    [pub] static ref LED_DICT: HashMap<u16, &'static str> = HashMap::from([
         (0, "NUML"),
         (1, "CAPSL"),
         (2, "SCROLLL"),
@@ -731,11 +731,11 @@ lazy_static!{
         (10, "CHARGING"),
         (15, "MAX"),
     ]);
-    static ref REP_DICT: HashMap<u16, &'static str> = HashMap::from([
+    [pub] static ref REP_DICT: HashMap<u16, &'static str> = HashMap::from([
         (0, "DELAY"),
         (1, "MAX"),
     ]);
-    static ref SND_DICT: HashMap<u16, &'static str> = HashMap::from([
+    [pub] static ref SND_DICT: HashMap<u16, &'static str> = HashMap::from([
         (0, "CLICK"),
         (1, "BELL"),
         (2, "TONE"),

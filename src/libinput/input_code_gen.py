@@ -73,7 +73,7 @@ with open("src/libinput/codes.rs", "w") as fs:
             "lazy_static!{\n"
             )
     for group, val in doc.items():
-        array = f"    static ref {group}_DICT: HashMap<u16, &'static str> = HashMap::from(["
+        array = f"    [pub] static ref {group}_DICT: HashMap<u16, &'static str> = HashMap::from(["
         for tup in val.items():
             array += "\n        " + str(tup).replace("'", '"') + ","
         array += "\n    ]);\n"
