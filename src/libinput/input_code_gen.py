@@ -76,7 +76,7 @@ with open("src/libinput/codes.rs", "w") as fs:
         array = f"    static ref {group}_DICT: HashMap<u16, &'static str> = HashMap::from(["
         for tup in val.items():
             array += "\n        " + str(tup).replace("'", '"') + ","
-        array += "    ]);\n"
+        array += "\n    ]);\n"
         file += array
     file += "}"
 

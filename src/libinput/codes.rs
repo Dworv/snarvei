@@ -13,7 +13,8 @@ lazy_static!{
         (4, "PROP_TOPBUTTONPAD"),
         (5, "PROP_POINTING_STICK"),
         (6, "PROP_ACCELEROMETER"),
-        (31, "PROP_MAX"),    ]);
+        (31, "PROP_MAX"),
+    ]);
     static ref EV_DICT: HashMap<u16, &'static str> = HashMap::from([
         (0, "SYN"),
         (1, "KEY"),
@@ -27,13 +28,15 @@ lazy_static!{
         (21, "FF"),
         (22, "PWR"),
         (23, "FF_STATUS"),
-        (31, "MAX"),    ]);
+        (31, "MAX"),
+    ]);
     static ref SYN_DICT: HashMap<u16, &'static str> = HashMap::from([
         (0, "REPORT"),
         (1, "CONFIG"),
         (2, "MT_REPORT"),
         (3, "DROPPED"),
-        (15, "MAX"),    ]);
+        (15, "MAX"),
+    ]);
     static ref KEY_DICT: HashMap<u16, &'static str> = HashMap::from([
         (1, "ESC"),
         (2, "1"),
@@ -515,7 +518,8 @@ lazy_static!{
         (698, "KBD_LCD_MENU3"),
         (699, "KBD_LCD_MENU4"),
         (700, "KBD_LCD_MENU5"),
-        (767, "MAX"),    ]);
+        (767, "MAX"),
+    ]);
     static ref BTN_DICT: HashMap<u16, &'static str> = HashMap::from([
         (256, "0"),
         (257, "1"),
@@ -624,7 +628,8 @@ lazy_static!{
         (740, "TRIGGER_HAPPY37"),
         (741, "TRIGGER_HAPPY38"),
         (742, "TRIGGER_HAPPY39"),
-        (743, "TRIGGER_HAPPY40"),    ]);
+        (743, "TRIGGER_HAPPY40"),
+    ]);
     static ref REL_DICT: HashMap<u16, &'static str> = HashMap::from([
         (0, "X"),
         (1, "Y"),
@@ -638,7 +643,8 @@ lazy_static!{
         (9, "MISC"),
         (11, "WHEEL_HI_RES"),
         (12, "HWHEEL_HI_RES"),
-        (15, "MAX"),    ]);
+        (15, "MAX"),
+    ]);
     static ref ABS_DICT: HashMap<u16, &'static str> = HashMap::from([
         (0, "X"),
         (1, "Y"),
@@ -681,7 +687,8 @@ lazy_static!{
         (59, "MT_DISTANCE"),
         (60, "MT_TOOL_X"),
         (61, "MT_TOOL_Y"),
-        (63, "MAX"),    ]);
+        (63, "MAX"),
+    ]);
     static ref SW_DICT: HashMap<u16, &'static str> = HashMap::from([
         (0, "LID"),
         (1, "TABLET_MODE"),
@@ -699,7 +706,8 @@ lazy_static!{
         (13, "LINEIN_INSERT"),
         (14, "MUTE_DEVICE"),
         (15, "PEN_INSERTED"),
-        (16, "MAX"),    ]);
+        (16, "MAX"),
+    ]);
     static ref MSC_DICT: HashMap<u16, &'static str> = HashMap::from([
         (0, "SERIAL"),
         (1, "PULSELED"),
@@ -707,7 +715,8 @@ lazy_static!{
         (3, "RAW"),
         (4, "SCAN"),
         (5, "TIMESTAMP"),
-        (7, "MAX"),    ]);
+        (7, "MAX"),
+    ]);
     static ref LED_DICT: HashMap<u16, &'static str> = HashMap::from([
         (0, "NUML"),
         (1, "CAPSL"),
@@ -720,13 +729,16 @@ lazy_static!{
         (8, "MISC"),
         (9, "MAIL"),
         (10, "CHARGING"),
-        (15, "MAX"),    ]);
+        (15, "MAX"),
+    ]);
     static ref REP_DICT: HashMap<u16, &'static str> = HashMap::from([
         (0, "DELAY"),
-        (1, "MAX"),    ]);
+        (1, "MAX"),
+    ]);
     static ref SND_DICT: HashMap<u16, &'static str> = HashMap::from([
         (0, "CLICK"),
         (1, "BELL"),
         (2, "TONE"),
-        (7, "MAX"),    ]);
+        (7, "MAX"),
+    ]);
 }
