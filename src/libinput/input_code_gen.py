@@ -64,4 +64,18 @@ for group, name, code in iter_lines(lines):
         if doc.get(group) is None:
             doc[group] = {}
         doc[group][code] = name
-pprint(doc)
+
+with open("src/libinput/codes.rs", "w") as fs:
+    file = ("use std::collections::HashMap;\n\n"
+            "use lazy_static::lazy_static;\n\n"
+            "lazy_static!{\n"
+            )
+    for group, val in doc.items():
+        array = f"    static ref {group}_DICT: HashMap<u16, &'static str> = HashMap::from(["
+        for tup in val.items():
+            array += "\n        " + str(tup)
+        array += "    ]);\n"
+        file += array
+    file += "}"
+
+    fs.write(file)
