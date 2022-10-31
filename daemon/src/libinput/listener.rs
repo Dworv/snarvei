@@ -12,6 +12,7 @@ struct Interface;
 
 impl LibinputInterface for Interface {
     fn open_restricted(&mut self, path: &Path, flags: i32) -> Result<RawFd, i32> {
+        println!("{flags}");
         OpenOptions::new()
             .custom_flags(flags)
             .read((flags & O_RDONLY != 0) | (flags & O_RDWR != 0))
@@ -34,6 +35,7 @@ pub fn listen(tx: Sender<Event>) {
         input.dispatch().unwrap();
         for e in &mut input {
             // Convert input.rs event to our event
+            println!("hi");
             if let Ok(ok_e) = Event::try_from(e) {
                 // If tx sending the event fails return
                 if let Err(_) = tx.send(ok_e) {
