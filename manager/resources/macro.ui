@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Created with Cambalache 0.10.3 -->
+<interface>
+  <requires lib="gtk" version="4.6"/>
+  <template class="macro_box" parent="GtkBox">
+    <property name="hexpand">True</property>
+    <property name="spacing">5</property>
+    <child>
+      <object class="GtkBox" id="macro_settings">
+        <property name="orientation">vertical</property>
+        <property name="spacing">5</property>
+        <child>
+          <object class="GtkText" id="macro_name">
+            <property name="input-hints">uppercase-words</property>
+            <property name="placeholder-text">Macro Name</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSeparator"/>
+    </child>
+    <child>
+      <object class="GtkBox" id="macro_trigger">
+        <property name="hexpand">True</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">5</property>
+        <child>
+          <object class="GtkLabel" id="macro_shortcut_label"/>
+        </child>
+        <child>
+          <object class="GtkButton" id="macro_shortcut_record">
+            <property name="hexpand">True</property>
+            <property name="icon-name">input-keyboard-symbolic</property>
+            <property name="label">Record Shortcut</property>
+          </object>
+        </child>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSeparator"/>
+    </child>
+    <child>
+      <object class="GtkBox" id="macro_action">
+        <property name="orientation">vertical</property>
+      </object>
+    </child>
+  </template>
+</interface>

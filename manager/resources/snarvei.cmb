@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<!DOCTYPE cambalache-project SYSTEM "cambalache-project.dtd">
+<cambalache-project version="0.10.3" target_tk="gtk-4.0">
+  <ui>
+	(1,1,"interface.ui","interface.ui",None,None,None,None,None,None),
+	(2,1,None,"macro.ui",None,None,None,None,None,None)
+  </ui>
+  <object>
+	(1,1,"GtkApplicationWindow","snarvei_window",None,None,None,None,None),
+	(1,2,"GtkBox","master_box",1,None,None,None,None),
+	(1,3,"GtkListBox","menu_list",2,None,None,None,None),
+	(1,4,"GtkListBox","macro_list",2,None,None,None,1),
+	(2,1,"GtkBox","macro_box",None,None,None,None,None),
+	(2,3,"GtkSeparator",None,1,None,None,None,1),
+	(2,5,"GtkSeparator",None,1,None,None,None,3),
+	(2,6,"GtkBox","macro_action",1,None,None,None,4),
+	(2,7,"GtkBox","macro_trigger",1,None,None,None,2),
+	(2,8,"GtkBox","macro_settings",1,None,None,None,None),
+	(2,9,"GtkText","macro_name",8,None,None,None,None),
+	(2,10,"GtkButton","macro_shortcut_record",7,None,None,None,1),
+	(2,11,"GtkLabel","macro_shortcut_label",7,None,None,None,None)
+  </object>
+  <object_property>
+	(1,1,"GtkWindow","child",None,None,None,None,None,2),
+	(1,3,"GtkWidget","vexpand","True",None,None,None,None,None),
+	(1,4,"GtkWidget","hexpand","True",None,None,None,None,None),
+	(1,4,"GtkWidget","vexpand","True",None,None,None,None,None),
+	(2,1,"GtkBox","spacing","5",None,None,None,None,None),
+	(2,1,"GtkWidget","hexpand","True",None,None,None,None,None),
+	(2,6,"GtkOrientable","orientation","vertical",None,None,None,None,None),
+	(2,7,"GtkBox","spacing","5",None,None,None,None,None),
+	(2,7,"GtkOrientable","orientation","vertical",None,None,None,None,None),
+	(2,7,"GtkWidget","hexpand","True",None,None,None,None,None),
+	(2,8,"GtkBox","spacing","5",None,None,None,None,None),
+	(2,8,"GtkOrientable","orientation","vertical",None,None,None,None,None),
+	(2,9,"GtkText","input-hints","uppercase-words",None,None,None,None,None),
+	(2,9,"GtkText","placeholder-text","Macro Name",None,None,None,None,None),
+	(2,10,"GtkButton","icon-name","input-keyboard-symbolic",None,None,None,None,None),
+	(2,10,"GtkButton","label","Record Shortcut",None,None,None,None,None),
+	(2,10,"GtkWidget","hexpand","True",None,None,None,None,None)
+  </object_property>
+</cambalache-project>
