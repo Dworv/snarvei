@@ -1,5 +1,3 @@
-use gtk4 as gtk;
-
 use glib::subclass::InitializingObject;
 use gtk::prelude::*;
 use gtk::subclass::prelude::*;
@@ -10,15 +8,11 @@ use gtk::{glib, Button, CompositeTemplate};
 #[template(resource = "/net/dworv/snarvei/window.ui")]
 pub struct Window {
     #[template_child]
-    pub macro_shortcut_record: TemplateChild<Button>,
-}
-
-#[gtk::template_callbacks]
-impl Window {
-    #[template_callback]
-    fn handle_macro_shortcut_record_clicked(button: &gtk4::Button) {
-        println!("WWWWWW")
-    }
+    pub new_collection_button: TemplateChild<Button>,
+    #[template_child]
+    pub menu_list: TemplateChild<gtk::ListBox>,
+    #[template_child]
+    pub macro_list: TemplateChild<gtk::ListBox>,
 }
 
 // The central trait for subclassing a GObject
@@ -31,10 +25,19 @@ impl ObjectSubclass for Window {
 
     fn class_init(klass: &mut Self::Class) {
         klass.bind_template();
+        klass.bind_template_callbacks();
     }
 
     fn instance_init(obj: &InitializingObject<Self>) {
         obj.init_template();
+    }
+}
+
+#[gtk::template_callbacks]
+impl Window {
+    #[template_callback]
+    fn handle_new_collection(&self, button: &Button) {
+        println!("WWWWWW")
     }
 }
 

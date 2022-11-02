@@ -1,8 +1,9 @@
 mod imp;
 
 use glib::Object;
-use gtk4 as gtk;
-use gtk::{gio, glib, Application};
+use gtk::{gio, glib, Application, subclass::prelude::*};
+
+use crate::macro_box::Macro;
 
 glib::wrapper! {
     pub struct Window(ObjectSubclass<imp::Window>)
@@ -15,5 +16,9 @@ impl Window {
     pub fn new(app: &Application) -> Self {
         // Create new window
         Object::builder().property("application", app).build()
+    }
+
+    pub fn add_macro(&mut self, m: &Macro) {
+        self.imp().macro_list.append(m)
     }
 }

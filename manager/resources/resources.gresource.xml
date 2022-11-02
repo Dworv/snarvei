@@ -2,6 +2,6 @@
 <gresources>
   <gresource prefix="/net/dworv/snarvei/">
     <file compressed="true" preprocess="xml-stripblanks">window.ui</file>
-    <!-- <file compressed="true" preprocess="xml-stripblanks">macro.ui</file> -->
+    <file compressed="true" preprocess="xml-stripblanks">macro.ui</file>
   </gresource>
 </gresources>

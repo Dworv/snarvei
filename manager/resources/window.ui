@@ -12,13 +12,6 @@
           </object>
         </child>
         <child>
-          <object class="GtkButton" id="macro_shortcut_record">
-            <property name="hexpand">True</property>
-            <property name="icon-name">input-keyboard-symbolic</property>
-            <property name="label">Record Shortcut</property>
-          </object>
-        </child>
-        <child>
           <object class="GtkListBox" id="macro_list">
             <property name="hexpand">True</property>
             <property name="vexpand">True</property>
@@ -26,5 +19,19 @@
         </child>
       </object>
     </property>
+    <property name="title">Snarvei</property>
+    <child type="titlebar">
+      <object class="GtkHeaderBar">
+        <child type="end">
+          <object class="GtkMenuButton" id="menu_button"/>
+        </child>
+        <child>
+          <object class="GtkButton" id="new_collection_button">
+            <property name="label">New</property>
+            <signal name="clicked" handler="handle_new_collection" swapped="yes"/>
+          </object>
+        </child>
+      </object>
+    </child>
   </template>
 </interface>

@@ -1,16 +1,15 @@
+mod macro_box;
 mod window;
 
-use gtk4 as gtk;
 use gtk::prelude::*;
-use gtk::{Application, gio};
+use gtk::{gio, Application};
 use window::Window;
 
 const APP_ID: &str = "net.dworv.snarvei";
 
 fn main() {
     // Register and include resources
-    gio::resources_register_include!("snarvei.gresource")
-        .expect("Failed to register resources.");
+    gio::resources_register_include!("snarvei.gresource").expect("Failed to register resources.");
 
     // Create a new application
     let app = Application::builder().application_id(APP_ID).build();
@@ -23,6 +22,7 @@ fn main() {
 }
 fn build_ui(app: &Application) {
     // Create new window and present it
-    let window = Window::new(app);
+    let mut window = Window::new(app);
+    window.add_macro(&macro_box::Macro::new());
     window.present();
 }
