@@ -22,8 +22,12 @@ impl Collection {
     pub fn new(name: String) -> Self {
         Self {
             name: name,
-            shortcuts: vec![]
+            shortcuts: vec![],
         }
+    }
+    pub fn add_shortcut(mut self, shortcut: Shortcut) -> Self {
+        self.shortcuts.push(shortcut);
+        self
     }
 }
 
@@ -37,7 +41,7 @@ impl Shortcut {
     pub fn new(tkey: u16, okey: u16) -> Self {
         Self {
             trigger: Keybind::new(tkey),
-            output: Keybind::new(okey)
+            output: Keybind::new(okey),
         }
     }
 }
@@ -54,7 +58,15 @@ impl Keybind {
         Self {
             key: key,
             includes: vec![],
-            excludes: vec![]
+            excludes: vec![],
         }
+    }
+    pub fn include(mut self, key: u16) -> Self {
+        self.includes.push(key);
+        self
+    }
+    pub fn exclude(mut self, key: u16) -> Self {
+        self.excludes.push(key);
+        self
     }
 }

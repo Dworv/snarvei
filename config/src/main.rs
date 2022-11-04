@@ -1,5 +1,11 @@
-use snarvei_config::read_collections;
+use std::time::Instant;
+
+use snarvei_config::{Config, write_config};
 
 fn main() {
-    println!("{:?}", read_collections());
+    let start = Instant::now();
+    write_config(
+        Config::new()
+    );
+    println!("Finished in {:?}", start.elapsed());
 }
