@@ -1,6 +1,6 @@
 use std::{sync::mpsc::channel, thread, time::Duration};
 
-use snarvei_daemon::{listen, Event, event::EventUpDown, KEY_DICT};
+use snarvei_daemon::{listen, Event, KEY_DICT};
 
 fn main() {
     let (tx, rx) = channel::<Event>();

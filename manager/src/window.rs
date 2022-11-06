@@ -1,6 +1,6 @@
-#[allow(unused_imports)]
-use gtk::{gio, Application, subclass::prelude::*};
 use glib::Object;
+#[allow(unused_imports)]
+use gtk::{gio, subclass::prelude::*, Application};
 
 use crate::shortcut::Shortcut;
 
@@ -15,7 +15,7 @@ mod imp {
     use glib::subclass::InitializingObject;
     use gtk::prelude::*;
     use gtk::subclass::prelude::*;
-    use gtk::{Button, CompositeTemplate};
+    use gtk::CompositeTemplate;
 
     // Object holding the state
     #[derive(CompositeTemplate, Default)]
@@ -48,10 +48,10 @@ mod imp {
 
     #[gtk::template_callbacks]
     impl Window {
-        #[template_callback]
-        fn handle_new_collection(&self, button: &Button) {
-            println!("WWWWWW")
-        }
+        // #[template_callback]
+        // fn handle_new_collection(&self, button: &Button) {
+        //     println!("WWWWWW")
+        // }
     }
 
     impl ObjectImpl for Window {}
@@ -63,9 +63,7 @@ mod imp {
 impl Window {
     pub fn new(app: &Application) -> Self {
         // Create new window
-        Object::builder()
-            .property("application", app)
-            .build()
+        Object::builder().property("application", app).build()
     }
 
     pub fn add_shortcut(&mut self, m: &Shortcut) {
