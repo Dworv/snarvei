@@ -1,6 +1,7 @@
 use std::{sync::mpsc::channel, thread, time::Duration};
-
-use snarvei_daemon::{listen, Event, KEY_DICT};
+mod libinput;
+use libinput::{listen, Event};
+use keycodes::KEY;
 
 fn main() {
     let (tx, rx) = channel::<Event>();
@@ -9,8 +10,8 @@ fn main() {
 
     for event in rx {
         if let Event::Keyboard(kb) = event {
-            if let Some(name) = KEY_DICT.get(&(kb.key as u16)) {
-                println!("AAAAAAAAAAAAAAAAAAA {name}")
+            if let Ok(key) = KEY::try_from(kb.key as u16) {
+                println!("AAAAAAAAAAAAAAAAAAA {}", String::from(key))
             }
         }
     }
