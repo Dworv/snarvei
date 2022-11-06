@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!-- Created with Cambalache 0.10.3 -->
+<interface>
+  <requires lib="gtk" version="4.6"/>
+  <template class="Keybind" parent="GtkBox">
+    <property name="orientation">vertical</property>
+    <property name="spacing">5</property>
+    <child>
+      <object class="GtkToggleButton" id="keybind_enter">
+        <property name="icon-name">input-keyboard-symbolic</property>
+        <property name="label">Keybind</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckButton" id="control">
+        <property name="label">Control</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckButton" id="shift">
+        <property name="label">Shift</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckButton" id="alt">
+        <property name="label">Alt</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkCheckButton" id="meta">
+        <property name="label">Meta</property>
+      </object>
+    </child>
+  </template>
+</interface>

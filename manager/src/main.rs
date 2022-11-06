@@ -1,4 +1,4 @@
-mod macro_box;
+mod shortcut;
 mod window;
 
 use gtk::prelude::*;
@@ -23,6 +23,10 @@ fn main() {
 fn build_ui(app: &Application) {
     // Create new window and present it
     let mut window = Window::new(app);
-    window.add_macro(&macro_box::Macro::new());
+    window.add_shortcut(&shortcut::Shortcut::new());
+    window.add_shortcut(&shortcut::Shortcut::new());
+    window.add_shortcut(&shortcut::Shortcut::new());
+    window.add_shortcut(&shortcut::Shortcut::new());
+    window.add_shortcut(&shortcut::Shortcut::new());
     window.present();
 }

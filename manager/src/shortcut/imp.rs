@@ -5,26 +5,18 @@ use gtk::{glib, CompositeTemplate};
 
 // Object holding the state
 #[derive(CompositeTemplate, Default)]
-#[template(resource = "/net/dworv/snarvei/macro.ui")]
-pub struct Macro {
+#[template(resource = "/net/dworv/snarvei/shortcut.ui")]
+pub struct Shortcut {
     #[template_child]
-    pub macro_settings: TemplateChild<gtk::Box>,
+    pub trigger: TemplateChild<gtk::Box>,
     #[template_child]
-    pub macro_trigger: TemplateChild<gtk::Box>,
-    #[template_child]
-    pub macro_action: TemplateChild<gtk::Box>,
-    #[template_child]
-    pub macro_name: TemplateChild<gtk::Text>,
-    #[template_child]
-    pub macro_shortcut_label: TemplateChild<gtk::Label>,
-    #[template_child]
-    pub macro_shortcut_record: TemplateChild<gtk::Button>,
+    pub output: TemplateChild<gtk::Box>,
 }
 
 #[glib::object_subclass]
-impl ObjectSubclass for Macro {
-    const NAME: &'static str = "MacroBox";
-    type Type = super::Macro;
+impl ObjectSubclass for Shortcut {
+    const NAME: &'static str = "Shortcut";
+    type Type = super::Shortcut;
     type ParentType = gtk::Box;
 
     fn class_init(klass: &mut Self::Class) {
@@ -38,15 +30,15 @@ impl ObjectSubclass for Macro {
 }
 
 #[gtk::template_callbacks]
-impl Macro {
+impl Shortcut {
     // #[template_callback]
     // fn handle_new_collection(&self, button: &Button) {
     //     println!("WWWWWW")
     // }
 }
 
-impl ObjectImpl for Macro {}
+impl ObjectImpl for Shortcut {}
 
-impl WidgetImpl for Macro {}
+impl WidgetImpl for Shortcut {}
 
-impl BoxImpl for Macro {}
+impl BoxImpl for Shortcut {}
