@@ -21,7 +21,7 @@ pub struct Collection {
 impl Collection {
     pub fn new(name: String) -> Self {
         Self {
-            name: name,
+            name,
             shortcuts: vec![],
         }
     }

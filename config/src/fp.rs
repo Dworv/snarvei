@@ -13,9 +13,9 @@ use crate::{Collection, Config};
 // const COLLECTIONS_PATH: PathBuf = Pathbuf::from("/.config/snarvei/collections/");
 
 lazy_static! {
-    static ref HOME: PathBuf = PathBuf::from(var("HOME").unwrap());
-    static ref CONFIG_PATH: PathBuf = HOME.join(".config/snarvei/");
-    static ref COLLECTIONS_PATH: PathBuf = CONFIG_PATH.join("collections/");
+    pub static ref HOME: PathBuf = PathBuf::from(var("HOME").unwrap());
+    pub static ref CONFIG_PATH: PathBuf = HOME.join(".config/snarvei/");
+    pub static ref COLLECTIONS_PATH: PathBuf = CONFIG_PATH.join("collections/");
 }
 
 pub fn read_config() -> Option<Config> {
