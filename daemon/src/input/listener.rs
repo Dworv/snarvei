@@ -3,10 +3,10 @@ use std::os::unix::{fs::OpenOptionsExt, io::{RawFd, FromRawFd, IntoRawFd}};
 use std::path::Path;
 use std::sync::mpsc::Sender;
 
-use input::{Libinput, LibinputInterface};
+use libinput::{Libinput, LibinputInterface};
 use libc::{O_RDONLY, O_RDWR, O_WRONLY};
 
-use super::Event;
+use crate::{Event, InputEvent};
 
 struct Interface;
 
@@ -34,9 +34,9 @@ pub fn listen(tx: Sender<Event>) {
         input.dispatch().unwrap();
         for e in &mut input {
             // Convert input.rs event to our event
-            if let Ok(ok_e) = Event::try_from(e) {
+            if let Ok(ok_e) = InputEvent::try_from(e) {
                 // If tx sending the event fails return
-                if let Err(_) = tx.send(ok_e) {
+                if let Err(_) = tx.send(Event::Input(ok_e)) {
                     return
                 }
             }

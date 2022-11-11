@@ -1,11 +1,11 @@
-use input::event::{self, keyboard::KeyboardEventTrait, pointer::PointerEventTrait};
+use libinput::event::{self, keyboard::KeyboardEventTrait, pointer::PointerEventTrait};
 
 /// An event from the user
 /// 
 /// This enum acts as a middleman between `input.rs`
 /// and the main code for ease of use.
 #[derive(Debug)]
-pub enum Event {
+pub enum InputEvent {
     /// A keyboard button being pressed.
     Keyboard(KeyboardEvent),
     /// A mouse button being pressed.
@@ -13,13 +13,13 @@ pub enum Event {
     // MouseScrl(MouseScroll)
 }
 
-impl TryFrom<event::Event> for Event {
+impl TryFrom<event::Event> for InputEvent {
     type Error = ();
     fn try_from(event: event::Event) -> Result<Self, ()> {
-        use Event::*;
+        use InputEvent::*;
         match event {
             // Keyboard events
-            input::Event::Keyboard(keyboard_event) => {
+            libinput::Event::Keyboard(keyboard_event) => {
                 match keyboard_event {
                     event::KeyboardEvent::Key(key_event) => {
                         Ok(Keyboard(
@@ -37,7 +37,7 @@ impl TryFrom<event::Event> for Event {
                 }
             },
             // Mouse events
-            input::Event::Pointer(pointer_event) => {
+            libinput::Event::Pointer(pointer_event) => {
                 match pointer_event {
                     event::PointerEvent::Button(button_event) => {
                         Ok(MouseButton(
@@ -131,11 +131,11 @@ impl EventTime for MouseButtonEvent {
     }
 }
 
-impl EventTime for Event {
+impl EventTime for InputEvent {
     fn microseconds(&self) -> u64 {
         match self {
-            Event::Keyboard(kb) => kb.time,
-            Event::MouseButton(ms) => ms.time,
+            InputEvent::Keyboard(kb) => kb.time,
+            InputEvent::MouseButton(ms) => ms.time,
         }
     }
 }
