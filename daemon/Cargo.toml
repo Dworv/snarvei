@@ -8,6 +8,9 @@ edition = "2021"
 [dependencies]
 config = { path = "../config", package = "snarvei-config" }
 keycodes = { path = "../keycodes", package = "snarvei-keycodes" }
-evdev = { package = "evdev-rs", version = "0.6.1" }
-input = "0.7"
+libevdev = { package = "evdev-rs", version = "0.6.1" }
+libinput = { version = "0.7", package = "input" }
 libc = "0.2.137"
+notify = "5.0.0"
+log = "0.4.17"
+env_logger = "0.9.3"
